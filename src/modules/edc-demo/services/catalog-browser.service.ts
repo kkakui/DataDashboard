@@ -39,6 +39,7 @@ export class CatalogBrowserService {
         const arr = Array<ContractOffer>();
         let isFirst = true;
         //divides multiple offers in dataSets into separate contractOffers.
+        if (!Array.isArray(contractOffer["dcat:dataset"])) contractOffer["dcat:dataset"] = new Array(1).fill(contractOffer["dcat:dataset"]);
         for(let i = 0; i<contractOffer["dcat:dataset"].length; i++){
           const dataSet: any = contractOffer["dcat:dataset"][i];
           const properties: { [key: string]: string; } = {
